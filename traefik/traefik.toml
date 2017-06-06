@@ -1,0 +1,26 @@
+# traefik.toml
+logLevel = "DEBUG"
+
+defaultEntryPoints = ["http"]
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+
+[web]
+address = ":8081"
+
+[file]
+
+# rules
+[backends]
+  [backends.backend1]
+    [backends.backend1.servers.server1]
+    url = "http://localhost:8080"
+    weight = 10
+
+[frontends]
+  [frontends.frontend1]
+  backend = "backend1"
+    [frontends.frontend1.routes.test_1]
+    rule = "Host:test.localhost"
+  

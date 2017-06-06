@@ -1,0 +1,15 @@
+version: '2.1'
+
+services:
+  proxy:
+    image: jsturtevant/traefik
+    command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
+    networks:
+      - webgateway
+    ports:
+      - "80:80"
+      - "8081:8080"
+
+networks:
+  webgateway:
+    driver: nat
