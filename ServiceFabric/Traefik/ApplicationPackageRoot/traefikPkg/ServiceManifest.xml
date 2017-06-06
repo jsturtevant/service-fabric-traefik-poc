@@ -16,10 +16,10 @@
       <ExeHost>
         <Program>traefik_windows-amd64.exe</Program>
         <Arguments>-c traefik.toml</Arguments>
-        <WorkingFolder>Work</WorkingFolder>
+        <WorkingFolder>CodeBase</WorkingFolder>
         <!-- Uncomment to log console output (both stdout and stderr) to one of the
              service's working directories. -->
-         <!--<ConsoleRedirection FileRetentionCount="5" FileMaxSizeInKb="2048"/>--> 
+         <ConsoleRedirection FileRetentionCount="5" FileMaxSizeInKb="2048"/> 
       </ExeHost>
     </EntryPoint>
   </CodePackage>
@@ -33,7 +33,7 @@
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="traefikTypeEndpoint" />
+      <Endpoint Name="traefikTypeEndpoint" Protocol="http" Type="Input" Port="8081" />
     </Endpoints>
   </Resources>
 </ServiceManifest>
