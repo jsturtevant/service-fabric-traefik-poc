@@ -1,0 +1,14 @@
+version: '2.1'
+
+services: 
+  whoami1:
+    image: stefanscherer/whoami-windows
+    labels:
+      - "traefik.backend=whoami"
+      - "traefik.frontend.entryPoints=http"
+      - "traefik.frontend.rule=Host:whoami.docker.loc"
+
+networks:
+  default:
+    external:
+      name: nat

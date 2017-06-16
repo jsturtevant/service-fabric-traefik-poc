@@ -3,7 +3,7 @@ version: '2.1'
 services:
   proxy:
     image: jsturtevant/traefik
-    command: --web --docker --docker.domain=docker.localhost --docker.endpoint=tcp://172.23.48.1:2375 --logLevel=DEBUG
+    command: --web --docker --docker.domain=docker.loc --docker.endpoint=tcp://172.28.160.1:2375 --logLevel=DEBUG
     ports:
       - "80:80"
       - "8080:8080"
